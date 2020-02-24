@@ -8,12 +8,17 @@
 var parola = prompt('Inserisci un parola:');     // L'utente inserisce la parola
 var palindromo = specchio(parola)               //  variabile palindromo
 
-if (palindromo == parola){                      //confronto palindromo con parola inserita
-    console.log('Complimenti: ' + parola + ' è un palindromo');
-} else {
-    console.log('Mi spiace! ' + parola + ' non è un palindromo');
+if (parola == parola.toLowerCase()){            //check case sensitive
+    if (palindromo == parola){                      //confronto palindromo con parola inserita
+        console.log('Complimenti: ' + parola + ' è un palindromo');
+    } else {
+        console.log('Mi spiace! ' + parola + ' non è un palindromo');
+    }
+} else{
+    alert('ATTENZIONE: Inserire solo lettere minuscole')
 }
 
+/*===FUNZIONE===*/
 function specchio(parola){                       //creo funzione palidromo
     var parolaContraria = [];
     for (var i = parola.length -1; i >= 0; i--) {
