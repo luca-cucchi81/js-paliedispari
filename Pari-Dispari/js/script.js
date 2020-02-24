@@ -9,6 +9,7 @@
 var numeroPc = randomNumber(1, 5);
 console.log(numeroPc);
 
+
 function randomNumber(min, max){
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -21,6 +22,7 @@ do{
         alert('ATTENZIONE: Devi scrivere \'pari\' o \'dispari\'!!! ')
     }
 } while (!isNaN (sceltaUtente) || (sceltaUtente != 'pari') && (sceltaUtente != 'dispari'))
+console.log(sceltaUtente);
 
 /*== SCELTA NUMERO DA 1 A 5 ==*/
 do{
@@ -30,18 +32,21 @@ do{
     }
 } while (isNaN(numeroUtente) || numeroUtente < 1 || numeroUtente > 5)
 
+var somma = numeroUtente + numeroPc;
+console.log('questa è la ' + somma);
+
 /*== ATTRIBUZIONE PARI / DISPARI ALLA SOMMA TRA NUMERO UTENTE E NUMERO PC ==*/
 var sceltaPc = ''
-if ((numeroUtente + numeroPc) % 2 == 0){
+if (somma % 2 == 0){
     sceltaPc = 'pari'
-} else if ((numeroUtente + numeroPc) % 2 != 0){
+} else {
     sceltaPc = 'dispari'
 }
+console.log(sceltaPc);
 
-if ((sceltaUtente == 'pari') && (sceltaPc == 'pari')){
-    console.log('HAI VINTO!! hai scelto: ' + numeroUtente + ' che è PARI. la somma del tuo numero con il  numero random ha restituito: ' + numeroPc + ' che è un numero PARI !!!');
-} else if ((sceltaUtente == 'dispari') && (sceltaPc == 'dispari')){
-    console.log('HAI VINTO!! hai scelto: ' + numeroUtente + ' che è DISPARI. la somma del tuo numero con il  numero random ha restituito: ' + numeroPc + ' che è un numero DISPARI !!!');
-} else{
-    alert('HAI PERSO')
+if (sceltaUtente == 'pari' && sceltaPc == 'pari' || sceltaUtente == 'dispari' && sceltaPc == 'dispari' ){
+    console.log('hai vinto');
+} else {
+    console.log('hai perso');
+
 }
