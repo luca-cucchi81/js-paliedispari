@@ -6,16 +6,10 @@
 //    10 + 5 = 15 è un numero DISPARI
 //    log     -------->   Spiacente, hai scelto PARI, ma la somma del tuo numero e del mio numero random ha restituito un numero DISPARI, hai perso!!!
 
-var numeroPc = randomNumber(1, 5);
+var numeroPc = randomNumber(1, 5);          // attribuzione numero random generato dal pc
 console.log(numeroPc);
 
-
-function randomNumber(min, max){
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-
-/*== SCELTA PARI E DISPARI ==*/
+/*== Scelta utente se pari o dispari ==*/
 do{
     var sceltaUtente = prompt('Scrivi pari o dispari');
     if (!isNaN (sceltaUtente) || (sceltaUtente != 'pari') && (sceltaUtente != 'dispari')){
@@ -24,7 +18,7 @@ do{
 } while (!isNaN (sceltaUtente) || (sceltaUtente != 'pari') && (sceltaUtente != 'dispari'))
 console.log(sceltaUtente);
 
-/*== SCELTA NUMERO DA 1 A 5 ==*/
+/*== Scelta utente numero da 1 a 5 ==*/
 do{
     var numeroUtente = parseInt(prompt('Scrivi un numero da 1 a 5'));
     if (isNaN(numeroUtente) || numeroUtente < 1 ||numeroUtente > 5){
@@ -32,21 +26,27 @@ do{
     }
 } while (isNaN(numeroUtente) || numeroUtente < 1 || numeroUtente > 5)
 
-var somma = numeroUtente + numeroPc;
+var somma = numeroUtente + numeroPc;        // definisco la somma tra numero utente e numero pc
 console.log('la somma è ' + somma);
 
-/*== ATTRIBUZIONE PARI / DISPARI ALLA SOMMA TRA NUMERO UTENTE E NUMERO PC ==*/
-var sceltaPc = ''
+/*==Attribuisco un valore pari o dispari al risultato della somma utente/pc ==*/
+var finale = ''
 if (somma % 2 == 0){
-    sceltaPc = 'pari'
+    finale = 'pari'
 } else {
-    sceltaPc = 'dispari'
+    finale = 'dispari'
 }
-console.log(sceltaPc);
+console.log(finale);
 
-if (sceltaUtente == 'pari' && sceltaPc == 'pari' || sceltaUtente == 'dispari' && sceltaPc == 'dispari' ){
-    console.log('HAI VINTO!! Hai scelto: ' + sceltaUtente + ' - La somma tra il tuo numero e quello generato dal PC è: ' + somma + ' che è ' + sceltaPc);
+/*== Creo la condizionale per il risultato finale ==*/
+if (sceltaUtente == 'pari' && finale == 'pari' || sceltaUtente == 'dispari' && finale== 'dispari' ){
+    console.log('HAI VINTO!! Hai scelto: ' + sceltaUtente + ' - La somma tra il tuo numero e quello generato dal PC è: ' + somma + ' che è ' + finale);
 } else {
-    console.log('HAI PERSO!! Hai scelto: ' + sceltaUtente + ' - La somma tra il tuo numero e quello generato dal PC è: ' + somma + ' che è ' + sceltaPc);
+    console.log('HAI PERSO!! Hai scelto: ' + sceltaUtente + ' - La somma tra il tuo numero e quello generato dal PC è: ' + somma + ' che è ' + finale);
 
+}
+
+/*== Funzione per generare numero random ==*/
+function randomNumber(min, max){
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
