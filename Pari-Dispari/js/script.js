@@ -33,7 +33,7 @@ do{
 } while (isNaN(numeroUtente) || numeroUtente < 1 || numeroUtente > 5)
 
 var somma = numeroUtente + numeroPc;
-console.log('questa è la ' + somma);
+console.log('la somma è ' + somma);
 
 /*== ATTRIBUZIONE PARI / DISPARI ALLA SOMMA TRA NUMERO UTENTE E NUMERO PC ==*/
 var sceltaPc = ''
@@ -45,8 +45,8 @@ if (somma % 2 == 0){
 console.log(sceltaPc);
 
 if (sceltaUtente == 'pari' && sceltaPc == 'pari' || sceltaUtente == 'dispari' && sceltaPc == 'dispari' ){
-    console.log('hai vinto');
+    console.log('HAI VINTO!! Hai scelto: ' + sceltaUtente + ' - La somma tra il tuo numero e quello generato dal PC è: ' + somma + ' che è ' + sceltaPc);
 } else {
-    console.log('hai perso');
+    console.log('HAI PERSO!! Hai scelto: ' + sceltaUtente + ' - La somma tra il tuo numero e quello generato dal PC è: ' + somma + ' che è ' + sceltaPc);
 
 }
